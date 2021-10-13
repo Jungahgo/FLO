@@ -1,79 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="수록곡 프래그먼트"-->
-<!--        android:textSize="30sp"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
-
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/album_info_ll"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:orientation="horizontal">-->
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="수록곡"-->
-<!--            android:layout_marginEnd="50dp"-->
-<!--            android:textSize="18sp"/>-->
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center"-->
-<!--            android:text="상세정보"-->
-<!--            android:textSize="18sp"/>-->
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="영상"-->
-<!--            android:layout_marginStart="50dp"-->
-<!--            android:textSize="18sp"/>-->
-
-<!--    </LinearLayout>-->
 
     <View
         android:id="@+id/album_infoLine_v"
         android:layout_width="wrap_content"
         android:layout_height="0.6dp"
         android:background="#000000"
-        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
 
     <LinearLayout
         android:id="@+id/album_mix_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/album_infoLine_v"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/album_infoLine_v">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="#000000"
-            android:text="내 취향 MIX"/>
+            android:text="내 취향 MIX" />
 
         <ImageView
             android:layout_width="40dp"
@@ -122,34 +80,41 @@
         app:layout_constraintTop_toBottomOf="@id/album_mix_ll"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
         android:fillViewport="true"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/album_all_listen_tv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/album_song1_ll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:orientation="horizontal">
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="20dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/album_1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/album_all_listen_tv">
 
                 //1
+
                 <TextView
                     android:id="@+id/album_no_1_cl"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="01"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
                 <TextView
                     android:id="@+id/album_songName_1_tv"
@@ -159,7 +124,7 @@
                     android:text="라일락"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/album_no_1_cl"/>
+                    app:layout_constraintStart_toEndOf="@id/album_no_1_cl" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -168,20 +133,20 @@
                     android:layout_marginTop="8dp"
                     android:text="아이유 (IU)"
                     app:layout_constraintStart_toEndOf="@id/album_no_1_cl"
-                    app:layout_constraintTop_toBottomOf="@id/album_songName_1_tv"/>
+                    app:layout_constraintTop_toBottomOf="@id/album_songName_1_tv" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_play"
-                    app:layout_constraintEnd_toStartOf="@id/album_player_more_1_iv"/>
+                    app:layout_constraintEnd_toStartOf="@id/album_player_more_1_iv" />
 
                 <ImageView
                     android:id="@+id/album_player_more_1_iv"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_more"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -189,26 +154,27 @@
                 android:id="@+id/album_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/album_1"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/album_1">
                 //2
+
                 <TextView
                     android:id="@+id/album_no_2_cl"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="02"
                     android:textColor="#000000"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/album_songName_2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginStart="20dp"
-                    android:text="라일락"
+                    android:text="Flu"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/album_no_2_cl"/>
+                    app:layout_constraintStart_toEndOf="@id/album_no_2_cl" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -217,20 +183,20 @@
                     android:layout_marginTop="8dp"
                     android:text="아이유 (IU)"
                     app:layout_constraintStart_toEndOf="@id/album_no_2_cl"
-                    app:layout_constraintTop_toBottomOf="@id/album_songName_2_tv"/>
+                    app:layout_constraintTop_toBottomOf="@id/album_songName_2_tv" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_play"
-                    app:layout_constraintEnd_toStartOf="@id/album_player_more_2_iv"/>
+                    app:layout_constraintEnd_toStartOf="@id/album_player_more_2_iv" />
 
                 <ImageView
                     android:id="@+id/album_player_more_2_iv"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_more"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -238,16 +204,17 @@
                 android:id="@+id/album_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/album_2"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/album_2">
                 //3
+
                 <TextView
                     android:id="@+id/album_no_3_cl"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="03"
                     android:textColor="#000000"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
 
                 <TextView
@@ -255,10 +222,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginStart="20dp"
-                    android:text="라일락"
+                    android:text="Coin"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/album_no_3_cl"/>
+                    app:layout_constraintStart_toEndOf="@id/album_no_3_cl" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -267,20 +234,21 @@
                     android:layout_marginTop="8dp"
                     android:text="아이유 (IU)"
                     app:layout_constraintStart_toEndOf="@id/album_no_3_cl"
-                    app:layout_constraintTop_toBottomOf="@id/album_songName_3_tv"/>
+                    app:layout_constraintTop_toBottomOf="@id/album_songName_3_tv" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_play"
-                    app:layout_constraintEnd_toStartOf="@id/album_player_more_3_iv"/>
+                    app:layout_constraintEnd_toStartOf="@id/album_player_more_3_iv"
+                    tools:layout_editor_absoluteY="0dp" />
 
                 <ImageView
                     android:id="@+id/album_player_more_3_iv"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_more"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -288,16 +256,17 @@
                 android:id="@+id/album_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/album_3"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/album_3">
                 //3
+
                 <TextView
                     android:id="@+id/album_no_4_cl"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="04"
                     android:textColor="#000000"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
 
                 <TextView
@@ -305,10 +274,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginStart="20dp"
-                    android:text="라일락"
+                    android:text="봄 안녕 봄"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/album_no_4_cl"/>
+                    app:layout_constraintStart_toEndOf="@id/album_no_4_cl" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -317,20 +286,20 @@
                     android:layout_marginTop="8dp"
                     android:text="아이유 (IU)"
                     app:layout_constraintStart_toEndOf="@id/album_no_4_cl"
-                    app:layout_constraintTop_toBottomOf="@id/album_songName_4_tv"/>
+                    app:layout_constraintTop_toBottomOf="@id/album_songName_4_tv" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_play"
-                    app:layout_constraintEnd_toStartOf="@id/album_player_more_4_iv"/>
+                    app:layout_constraintEnd_toStartOf="@id/album_player_more_4_iv" />
 
                 <ImageView
                     android:id="@+id/album_player_more_4_iv"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_more"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -338,26 +307,27 @@
                 android:id="@+id/album_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/album_4"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/album_4">
                 //3
+
                 <TextView
                     android:id="@+id/album_no_5_cl"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="05"
                     android:textColor="#000000"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/album_songName_5_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginStart="20dp"
-                    android:text="라일락"
+                    android:text="Celebrity"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/album_no_5_cl"/>
+                    app:layout_constraintStart_toEndOf="@id/album_no_5_cl" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -366,20 +336,20 @@
                     android:layout_marginTop="8dp"
                     android:text="아이유 (IU)"
                     app:layout_constraintStart_toEndOf="@id/album_no_5_cl"
-                    app:layout_constraintTop_toBottomOf="@id/album_songName_5_tv"/>
+                    app:layout_constraintTop_toBottomOf="@id/album_songName_5_tv" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_play"
-                    app:layout_constraintEnd_toStartOf="@id/album_player_more_5_iv"/>
+                    app:layout_constraintEnd_toStartOf="@id/album_player_more_5_iv" />
 
                 <ImageView
                     android:id="@+id/album_player_more_5_iv"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_more"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -387,26 +357,27 @@
                 android:id="@+id/album_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/album_5"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/album_5">
                 //3
+
                 <TextView
                     android:id="@+id/album_no_6_cl"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="06"
                     android:textColor="#000000"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/album_songName_6_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginStart="20dp"
-                    android:text="라일락"
+                    android:text="돌림노래 (Feat. DEAN)"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/album_no_6_cl"/>
+                    app:layout_constraintStart_toEndOf="@id/album_no_6_cl" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -415,20 +386,20 @@
                     android:layout_marginTop="8dp"
                     android:text="아이유 (IU)"
                     app:layout_constraintStart_toEndOf="@id/album_no_6_cl"
-                    app:layout_constraintTop_toBottomOf="@id/album_songName_6_tv"/>
+                    app:layout_constraintTop_toBottomOf="@id/album_songName_6_tv" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_play"
-                    app:layout_constraintEnd_toStartOf="@id/album_player_more_6_iv"/>
+                    app:layout_constraintEnd_toStartOf="@id/album_player_more_6_iv" />
 
                 <ImageView
                     android:id="@+id/album_player_more_6_iv"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_more"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -436,26 +407,27 @@
                 android:id="@+id/album_7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/album_6"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/album_6">
                 //3
+
                 <TextView
                     android:id="@+id/album_no_7_cl"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="07"
                     android:textColor="#000000"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/album_songName_7_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginStart="20dp"
-                    android:text="라일락"
+                    android:text="빈 컵 (Empty Cup)"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@id/album_no_7_cl"/>
+                    app:layout_constraintStart_toEndOf="@id/album_no_7_cl" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -464,28 +436,26 @@
                     android:layout_marginTop="8dp"
                     android:text="아이유 (IU)"
                     app:layout_constraintStart_toEndOf="@id/album_no_7_cl"
-                    app:layout_constraintTop_toBottomOf="@id/album_songName_7_tv"/>
+                    app:layout_constraintTop_toBottomOf="@id/album_songName_7_tv" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_play"
-                    app:layout_constraintEnd_toStartOf="@id/album_player_more_7_iv"/>
+                    app:layout_constraintEnd_toStartOf="@id/album_player_more_7_iv" />
 
                 <ImageView
                     android:id="@+id/album_player_more_7_iv"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/btn_player_more"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

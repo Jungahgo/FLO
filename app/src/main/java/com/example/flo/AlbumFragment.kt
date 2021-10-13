@@ -40,8 +40,6 @@ class AlbumFragment : Fragment() {
             tab.text = information[position]
         }.attach()
 
-
-
         return binding.root
     }
 
