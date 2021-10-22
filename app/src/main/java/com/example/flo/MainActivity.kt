@@ -9,15 +9,15 @@ import com.example.flo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initNavigation()
 
-
-
-        val song = Song(binding.mainMiniplayerTitleTv.text.toString() , binding.mainMiniplayerSingerTv.text.toString())
-
+        //val song = Song(binding.mainMiniplayerTitleTv.text.toString() , binding.mainMiniplayerSingerTv.text.toString())
+        val song = Song("라일락", "아이유", 215, false)
 
         Log.d("Log test", song.title + song.singer)
 
@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this , SongActivity::class.java)
             intent.putExtra("title",song.title)
             intent.putExtra("singer",song.singer)
-
+            intent.putExtra("playTime",song.playTime)
+            intent.putExtra("isPlaying",song.isPlaying)
             startActivity(intent)
         }
 
